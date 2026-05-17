@@ -2,9 +2,11 @@
 
 ## Current Phase
 
-Studio OS foundation standard.
+Studio OS foundation setup.
 
 No product project is active.
+
+No runtime implementation has started.
 
 ## Status Values
 
@@ -28,6 +30,11 @@ Required documents:
 - STUDIO_STANDARD.md
 - OPENAI_USAGE_STANDARD.md
 - DATA_STANDARD.md
+- DATA_MODEL.md
+- WORKFLOW.md
+- HOSTING.md
+- PROJECT_INTAKE.md
+- REPOSITORY_MAP.md
 - ROADMAP.md
 - DECISION_LOG.md
 
@@ -38,42 +45,44 @@ Completion rules:
 - truth standard is defined
 - token economy is defined
 - data ownership is defined
+- data model is defined
+- workflow is defined
+- hosting requirements are defined
+- project intake rule is defined
 - approval rule is defined
 - no product project is active
 
-## Milestone 1 — Data Model
+## Milestone 1 — Data Model Review
 
 Status: NOT_STARTED
 
 Goal:
 
-Define the MVP database schema for Studio OS.
+Review and approve the MVP database model for Studio OS.
 
-Required entities:
+Completion rules:
 
-- Project
-- Role
-- Task
-- Conversation
-- Message
-- Decision
-- Milestone
-- Approval
-- Memory
-- CostLog
-- ContextPackage
+- all required entities are approved
+- entity relationships are clear
+- sensitive data rules are approved
+- PostgreSQL source-of-truth rule is approved
+- Redis temporary-use rule is approved
 
-## Milestone 2 — Workflow Model
+## Milestone 2 — Workflow Review
 
 Status: NOT_STARTED
 
 Goal:
 
-Define the first working studio loop.
+Review and approve the first working studio loop.
 
-Flow:
+Completion rules:
 
-Owner request → Studio Director → role selection → minimal context → role output → Director summary → storage → owner approval if needed.
+- owner to Director flow is approved
+- role call policy is approved
+- controlled review policy is approved
+- approval gate is approved
+- failure rule is approved
 
 ## Milestone 3 — Hosting Decision
 
@@ -93,6 +102,8 @@ Requirements:
 - logs
 - backups
 - custom domain support
+- secure secret management
+- estimated monthly cost
 
 ## Milestone 4 — Implementation Repository Decision
 
@@ -108,6 +119,32 @@ Options:
 - existing platform repository later
 - monorepo structure
 
+Completion rules:
+
+- implementation repository is selected
+- stack is selected
+- first implementation milestone is created
+- no product project is mixed into the foundation implementation
+
+## Milestone 5 — Runtime MVP Planning
+
+Status: NOT_STARTED
+
+Goal:
+
+Plan the first working Studio OS runtime after hosting and repository decisions are approved.
+
+Initial runtime scope:
+
+- project creation
+- role list
+- task creation
+- single role call
+- message storage
+- decision storage
+- memory storage
+- cost logging
+
 ## Final Rule
 
-Do not start implementation before the standard and hosting direction are approved.
+Do not start implementation before foundation, hosting, and repository direction are approved.
