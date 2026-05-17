@@ -1,5 +1,11 @@
 # NEXORA Studio OS Roadmap
 
+## Current Direction
+
+Build the studio foundation first.
+
+No external product project is active during this phase.
+
 ## Status Values
 
 - NOT_STARTED
@@ -10,179 +16,153 @@
 - FAILED
 - LOCKED
 
-## Milestone 0 — Studio Constitution Lock
+## Milestone 0 — Studio Standard Lock
 
 Status: IN_PROGRESS
 
 Goal:
 
-Lock the purpose, operating model, minimum department structure, owner approval rules, and token economy principles.
+Lock the studio rules before any implementation work begins.
+
+Required standards:
+
+- constitution
+- role model
+- quality standard
+- token economy standard
+- data storage standard
+- task execution standard
+- milestone protocol
 
 Completion rules:
 
-- Studio constitution exists
-- Department system exists
-- Token economy rule exists
-- Owner-facing Director model is approved
-- No implementation repo is modified during this milestone
+- core standards exist
+- owner-facing Director model is defined
+- role outputs are bounded
+- data ownership rule is defined
+- token economy rule is defined
+- no product project is active
 
-## Milestone 1 — Studio Database Foundation Plan
+## Milestone 1 — Data Model Plan
 
 Status: NOT_STARTED
 
 Goal:
 
-Define the database models required to store projects, tasks, department messages, decisions, milestones, approvals, memory, checkpoints, and cost logs.
+Define the database structure for the studio.
 
-Completion rules:
-
-- MVP database entities are listed
-- Entity relationships are defined
-- Sensitive data rules are defined
-- Migration target repo is identified
-
-## Milestone 2 — Studio API Foundation Plan
-
-Status: NOT_STARTED
-
-Goal:
-
-Define internal API modules for Studio OS inside TV_Project_Platform.
-
-Scope:
+Required areas:
 
 - projects
-- departments
+- roles
 - tasks
 - conversations
 - messages
 - decisions
 - milestones
-- approvals
 - memory
-- cost logs
-- context packages
+- approvals
+- cost records
+- checkpoints
 
 Completion rules:
 
-- Endpoint groups are defined
-- Authorization rules are defined
-- Owner-only/internal access is enforced conceptually
+- MVP entities are listed
+- relationships are clear
+- storage rules are defined
+- sensitive data rule is defined
 
-## Milestone 3 — Studio Web Dashboard Plan
+## Milestone 2 — Director Workflow Plan
 
 Status: NOT_STARTED
 
 Goal:
 
-Design the first internal Studio OS dashboard.
-
-Required views:
-
-- Projects
-- Active Project
-- Tasks
-- Milestones
-- Decisions
-- Department Runs
-- Memory
-- Cost Usage
-- Approvals
+Define how the owner talks to the Studio Director and how the Director manages roles.
 
 Completion rules:
 
-- Dashboard MVP scope is clear
-- No customer-facing route is mixed with internal studio routes
+- request intake is defined
+- task creation is defined
+- role selection is defined
+- output summary is defined
+- approval flow is defined
 
-## Milestone 4 — Single Department Call MVP
+## Milestone 3 — Single Role Call Plan
 
 Status: NOT_STARTED
 
 Goal:
 
-Build the first functional AI department call flow.
+Define the smallest useful AI workflow.
 
 Flow:
 
-Owner request → Studio Director → one department → response saved to database → Director summary → owner approval if needed.
+Owner request → Studio Director → one role → stored output → Director summary.
 
 Completion rules:
 
-- One department call can be stored
-- Message history is stored in owner database
-- Cost/token log is stored
-- No uncontrolled department loops
+- minimal context package is defined
+- role output format is defined
+- cost logging is defined
+- memory save rule is defined
 
-## Milestone 5 — Controlled Roundtable MVP
+## Milestone 4 — Controlled Multi-Role Review Plan
 
 Status: NOT_STARTED
 
 Goal:
 
-Allow multiple departments to respond under Director control.
+Define when multiple roles may be used.
 
 Completion rules:
 
-- Roundtable has max department count
-- Roundtable has max turn count
+- role count limit exists
+- turn limit exists
 - Director final summary is required
-- Results are stored
-- Owner sees only final compact result unless details are requested
+- owner sees compact result by default
 
-## Milestone 6 — Project Onboarding Engine
-
-Status: NOT_STARTED
-
-Goal:
-
-Create a flow for starting web, app, game, and platform projects inside the studio.
-
-The system should generate:
-
-- project constitution
-- MVP scope
-- recommended departments
-- milestone list
-- first task list
-- GitHub repo links
-
-Completion rules:
-
-- New project can be created
-- Project type affects recommended departments
-- First milestone can be created from template
-
-## Milestone 7 — GitHub Handoff Plan
+## Milestone 5 — Project Creation Standard
 
 Status: NOT_STARTED
 
 Goal:
 
-Define how approved studio tasks become GitHub issues, branches, PR plans, or implementation handoffs.
+Define how a future project enters the studio.
+
+A project must have:
+
+- purpose
+- type
+- constitution
+- milestones
+- tasks
+- role plan
+- memory rules
+- approval rules
 
 Completion rules:
 
-- AI cannot silently deploy or commit
-- Owner approval is required
-- Target repo and affected files must be explicit
-- Rollback/checkpoint rule exists
+- project intake template exists
+- project constitution template exists
+- milestone template exists
+- task template exists
 
-## Milestone 8 — Move Existing Projects Into Studio
+## Milestone 6 — Implementation Target Decision
 
 Status: NOT_STARTED
 
 Goal:
 
-Onboard existing projects:
-
-- TV_Project
-- TV_Project_Platform
-- future game projects
-- future web/app projects
+Decide where the first working Studio OS implementation will live.
 
 Completion rules:
 
-- Each project has a constitution
-- Each project has milestones
-- Each project has active tasks
-- Each project has decision log entries
+- implementation repository is selected
+- stack is selected
+- first database migration plan is approved
+- first dashboard scope is approved
+
+## Final Rule
+
+Do not start product work before the Studio OS foundation standard is locked.
