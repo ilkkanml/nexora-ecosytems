@@ -289,6 +289,117 @@ Fields:
 - tokenEstimate
 - createdAt
 
+## Entity Relationships
+
+### Project Relationships
+
+Project has many:
+
+- Milestones
+- Tasks
+- Decisions
+- Memory records
+- Approvals
+- CostLogs
+- ContextPackages
+
+### Milestone Relationships
+
+Milestone belongs to one Project.
+
+Milestone has many Tasks.
+
+### Task Relationships
+
+Task belongs to one Project.
+
+Task may belong to one Milestone.
+
+Task may require one Role.
+
+Task has many:
+
+- Conversations
+- Runs
+- Messages through Conversations
+- Decisions
+- Approvals
+- CostLogs
+- ContextPackages
+
+### Conversation Relationships
+
+Conversation belongs to one Task.
+
+Conversation has many:
+
+- Messages
+- Runs
+
+### Message Relationships
+
+Message belongs to one Conversation.
+
+Message may belong to one Role.
+
+Message may belong to one Run.
+
+### Run Relationships
+
+Run belongs to one Conversation.
+
+Run belongs to one Task.
+
+Run belongs to one Role.
+
+Run may use one ContextPackage.
+
+Run may create many Messages.
+
+Run may have one or more CostLogs.
+
+### Decision Relationships
+
+Decision belongs to one Project.
+
+Decision may belong to one Task.
+
+Decision may have one Approval.
+
+### Memory Relationships
+
+Memory belongs to one Project.
+
+Memory may be referenced by many ContextPackages.
+
+### Approval Relationships
+
+Approval belongs to one Project.
+
+Approval may belong to one Task.
+
+Approval may belong to one Decision.
+
+### CostLog Relationships
+
+CostLog belongs to one Project.
+
+CostLog may belong to one Task.
+
+CostLog may belong to one Conversation.
+
+CostLog may belong to one Run.
+
+### ContextPackage Relationships
+
+ContextPackage belongs to one Project.
+
+ContextPackage belongs to one Task.
+
+ContextPackage may be used by many Runs.
+
+ContextPackage may reference many Memory records and file references.
+
 ## Data Rules
 
 - PostgreSQL is the source of truth.
