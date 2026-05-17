@@ -1,53 +1,27 @@
 # Decision Log
 
-## 2026-05-17 — NEXORA Studio OS Direction Approved
+## 2026-05-17 — Clean Studio Foundation Restart
 
 Decision:
 
-Build the internal studio first, then move projects into the studio.
+Restart the repository as a clean NEXORA Studio OS foundation.
 
 Approved direction:
 
-- The owner speaks only with Studio Director.
-- Departments work behind the Director.
-- Departments may communicate only in controlled roundtables.
-- The studio uses minimum permanent departments.
+- No product project is active during foundation phase.
+- TV_Project and TV_Project_Platform are not part of the active scope right now.
+- The studio standard is created first.
+- The owner speaks with the Studio Director.
+- Roles stay inside their assigned task.
+- Project memory belongs in the owner-controlled data system.
+- OpenAI is used as the intelligence engine.
 - Token usage must be minimized.
-- Project memory is stored in the owner-controlled database.
-- OpenAI is the intelligence engine, not the permanent memory source.
-- Every project starts with constitution, milestones, tasks, and approvals.
-- GitHub execution happens only after approved handoff.
+- Evidence and uncertainty must be clearly separated.
+- Implementation starts only after the standard, data model, workflow, hosting, and repository decision are approved.
 
 Reason:
 
-This creates a repeatable system for finishing web, app, game, and platform projects without losing context, wasting tokens, or creating uncontrolled department loops.
-
-Status:
-
-APPROVED
-
-## 2026-05-17 — Legal Media Player Ecosystem Direction Approved
-
-Decision:
-
-Nexora will be managed as a legal media player ecosystem, not an IPTV service provider.
-
-Approved direction:
-
-- No content service
-- No broadcasting
-- No stream hosting
-- No channel selling
-- No provider marketplace
-- User-owned lawful sources only
-- Platform manages accounts, devices, licenses, subscriptions, dashboards, app versions, remote config, and optional temporary encrypted profile transfer
-- Android TV / Fire TV is the first client
-- Core platform is the central backend/web/database system
-- Additional clients come later after core stability
-
-Reason:
-
-This keeps the project legal, focused, scalable, and manageable across multiple device platforms.
+A clean foundation avoids confusion and prevents product projects from shaping the studio before the studio standard is ready.
 
 Status:
 
