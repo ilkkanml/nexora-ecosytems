@@ -111,18 +111,16 @@ Types:
 
 ### Message
 
-Stores role inputs and outputs.
+Stores user, Director, role, and owner-facing message content.
 
 Fields:
 
 - id
 - conversationId
 - roleId
+- runId
 - messageType
 - content
-- model
-- inputTokens
-- outputTokens
 - createdAt
 
 Message types:
@@ -132,6 +130,37 @@ Message types:
 - ROLE_OUTPUT
 - DIRECTOR_SUMMARY
 - OWNER_DECISION
+
+### Run
+
+Represents one technical model execution or tool-assisted role execution.
+
+Run is separate from Message because a conversation may contain many messages, but each model call needs its own technical record.
+
+Fields:
+
+- id
+- conversationId
+- taskId
+- roleId
+- contextPackageId
+- provider
+- model
+- status
+- inputTokens
+- outputTokens
+- estimatedCost
+- startedAt
+- completedAt
+- errorMessage
+
+Statuses:
+
+- QUEUED
+- RUNNING
+- SUCCEEDED
+- FAILED
+- CANCELLED
 
 ### Decision
 
@@ -227,7 +256,9 @@ Statuses:
 
 ### CostLog
 
-Stores AI usage records.
+Stores AI usage cost records.
+
+CostLog may summarize Run records for reporting.
 
 Fields:
 
@@ -235,6 +266,8 @@ Fields:
 - projectId
 - taskId
 - conversationId
+- runId
+- provider
 - model
 - inputTokens
 - outputTokens
@@ -274,12 +307,20 @@ The first working version only needs:
 - Task
 - Conversation
 - Message
+- Run
 - Decision
 - Milestone
 - Memory
 - Approval
 - CostLog
 - ContextPackage
+
+## Entity Separation
+
+- Conversation stores the logical work session.
+- Message stores readable content.
+- Run stores technical model execution details.
+- CostLog stores reporting-friendly usage records.
 
 ## Final Rule
 
