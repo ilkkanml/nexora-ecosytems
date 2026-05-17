@@ -1,41 +1,39 @@
-# Nexora Ecosystems Command Center
+# NEXORA Studio OS
 
-Central governance repository for the Nexora legal media player ecosystem and the internal AI studio that will manage future projects.
+Clean foundation repository for building an internal AI-assisted studio.
 
-This repository is not a runtime application.
+This repository is the standard and planning center for the studio.
 
-It is the decision, roadmap, milestone, legal-boundary, studio-operating-system, and cross-repository control hub.
+It is not a product project.
+It is not a runtime app yet.
+It is not tied to TV_Project or TV_Project_Platform during the foundation phase.
 
-## Active Repositories
+## Current Focus
 
-| Area | Repository | Role |
-|---|---|---|
-| Player Client | `ilkkanml/TV_Project` | Android TV / Fire TV media player client |
-| Core Platform | `ilkkanml/TV_Project_Platform` | Web, API, database, dashboards, license/device/config center, future internal studio runtime |
-| Command Center | `ilkkanml/nexora-ecosytems` | Governance, decisions, milestone control, Studio OS design |
+Build a strong, minimal, owner-controlled studio system before starting any product project.
 
-## Product Identity
+The studio will later manage web design, app development, game development, backend platforms, and other projects.
 
-Nexora is a legal media player ecosystem.
+## Core Idea
 
-The ecosystem may provide player apps, accounts, device activation, license/subscription validation, admin/customer/reseller management, app version checks, remote configuration, and optional temporary encrypted user-owned profile transfer.
+The owner speaks with the Studio Director.
 
-The ecosystem must not provide, sell, host, relay, transcode, broadcast, package, source, or distribute TV streams, channels, playlists, provider accounts, copyrighted media, or unauthorized content.
+The Studio Director controls role calls, context size, summaries, approvals, and task flow.
 
-## Studio Identity
+Other roles answer only their assigned task.
 
-Nexora Studio OS is the internal AI-assisted mini studio that will manage web design, application development, game development, and platform projects.
+All permanent memory, decisions, tasks, role outputs, approvals, and cost records are stored in the owner-controlled data system.
 
-The owner talks only to the Studio Director.
+OpenAI is used as the intelligence engine, not as the permanent project memory.
 
-Departments work behind the Director through controlled, token-efficient calls.
+## Active Documents
 
-All important decisions are recorded before implementation.
+- `STUDIO_STANDARD.md`
+- `OPENAI_USAGE_STANDARD.md`
+- `DATA_STANDARD.md`
+- `ROADMAP.md`
+- `DECISION_LOG.md`
 
-## Current Approved Direction
+## Foundation Rule
 
-> Build the studio first. Then move projects into the studio and complete them through constitution, milestones, tasks, approvals, memory, and GitHub-controlled execution.
-
-## First Priority
-
-Lock the Studio OS constitution and department model before modifying implementation repositories.
+Do not start product work until the Studio OS standard is locked.
