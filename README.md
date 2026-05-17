@@ -2,17 +2,17 @@
 
 Clean foundation repository for building an internal AI-assisted studio.
 
-This repository is the standard and planning center for the studio.
+This repository defines the studio standard, data model, workflow, hosting requirements, and project intake rules.
 
 It is not a product project.
 It is not a runtime app yet.
-It is not tied to TV_Project or TV_Project_Platform during the foundation phase.
+It is not tied to any product repository during the foundation phase.
 
 ## Current Focus
 
 Build a strong, minimal, owner-controlled studio system before starting any product project.
 
-The studio will later manage web design, app development, game development, backend platforms, and other projects.
+The studio will later manage web design, app development, game development, backend platforms, internal tools, and other projects.
 
 ## Core Idea
 
@@ -28,12 +28,25 @@ OpenAI is used as the intelligence engine, not as the permanent project memory.
 
 ## Active Documents
 
-- `STUDIO_STANDARD.md`
-- `OPENAI_USAGE_STANDARD.md`
-- `DATA_STANDARD.md`
-- `ROADMAP.md`
-- `DECISION_LOG.md`
+- `STUDIO_STANDARD.md` — studio rules, roles, truth standard, approvals
+- `OPENAI_USAGE_STANDARD.md` — OpenAI API usage, token control, model policy
+- `DATA_STANDARD.md` — permanent memory and storage rules
+- `DATA_MODEL.md` — MVP database entities
+- `WORKFLOW.md` — Director-led task flow
+- `HOSTING.md` — permanent runtime requirements
+- `PROJECT_INTAKE.md` — how future projects enter the studio
+- `REPOSITORY_MAP.md` — current repo purpose and implementation boundary
+- `ROADMAP.md` — current milestones
+- `DECISION_LOG.md` — approved decisions
 
 ## Foundation Rule
 
-Do not start product work until the Studio OS standard is locked.
+Do not start product work until the Studio OS standard, data model, workflow, hosting direction, and implementation target are approved.
+
+## Current Status
+
+Foundation setup in progress.
+
+No product project is active.
+
+No runtime implementation has started.
