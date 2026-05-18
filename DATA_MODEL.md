@@ -8,6 +8,18 @@ The database is the permanent memory of the studio.
 
 OpenAI is the intelligence engine, not the permanent data store.
 
+The Studio Director controls records by default.
+
+## Current Runtime Alignment
+
+Runtime implementation is active in:
+
+`ilkkanml/nexora-studio-os-runtime`
+
+The runtime schema has evolved to include model routing metadata and validation-gated workflow behavior.
+
+This foundation model defines the approved MVP shape and should remain aligned with runtime implementation.
+
 ## MVP Entities
 
 ### Project
@@ -77,6 +89,14 @@ Fields:
 - updatedAt
 - completedAt
 
+Task role rule:
+
+`requiredRoleId` is optional.
+
+Simple status, recap, record review, and simple planning may stay Director-only.
+
+Specialist role assignment should exist only when justified.
+
 Statuses:
 
 - DRAFT
@@ -89,7 +109,7 @@ Statuses:
 
 ### Conversation
 
-Represents one role call or one controlled review.
+Represents one Director-only session, one role call, or one controlled review.
 
 Fields:
 
@@ -146,6 +166,10 @@ Fields:
 - contextPackageId
 - provider
 - model
+- modelTier
+- reasoningEffort
+- modelRouteReason
+- modelRouteApprovalRequired
 - status
 - inputTokens
 - outputTokens
@@ -247,6 +271,8 @@ Fields:
 - createdAt
 - approvedAt
 
+Approval should cover both task-level approval and model route approval when needed.
+
 Statuses:
 
 - REQUIRED
@@ -269,6 +295,9 @@ Fields:
 - runId
 - provider
 - model
+- modelTier
+- reasoningEffort
+- modelRouteApprovalRequired
 - inputTokens
 - outputTokens
 - estimatedCost
@@ -288,6 +317,18 @@ Fields:
 - includedFileRefs
 - tokenEstimate
 - createdAt
+
+Context packages should use the smallest useful context.
+
+Sensitive-looking values should be redacted before prompt or storage when possible.
+
+## Validation Records
+
+First MVP may keep validation reports as files and CI artifacts instead of database records.
+
+Future runtime versions may add a ValidationRun entity if validation history needs to be queried from the Studio OS UI.
+
+For now, validation reports are generated outside the database by the runtime validation gate.
 
 ## Entity Relationships
 
@@ -315,7 +356,7 @@ Task belongs to one Project.
 
 Task may belong to one Milestone.
 
-Task may require one Role.
+Task may require one Role only when specialist work is justified.
 
 Task has many:
 
@@ -471,6 +512,9 @@ These fields should be optional because they depend on progress or context:
 - Message.roleId
 - Message.runId
 - Run.contextPackageId
+- Run.modelTier
+- Run.reasoningEffort
+- Run.modelRouteReason
 - Run.completedAt
 - Run.errorMessage
 - Decision.taskId
@@ -482,6 +526,8 @@ These fields should be optional because they depend on progress or context:
 - CostLog.taskId
 - CostLog.conversationId
 - CostLog.runId
+- CostLog.modelTier
+- CostLog.reasoningEffort
 - ContextPackage.includedMemoryIds
 - ContextPackage.includedFileRefs
 
@@ -508,9 +554,11 @@ Optional fields should describe what happened later.
 - PostgreSQL is the source of truth.
 - Redis may be used for jobs, cache, rate limits, and temporary run status.
 - Redis is not permanent memory.
-- Accepted summaries become reusable memory.
+- Accepted summaries become reusable memory only after owner acceptance.
 - Long conversations should be compacted before reuse.
 - Sensitive data should not be sent to model context unless explicitly required and approved.
+- Simple records should stay Director-controlled.
+- Specialist involvement should not automatically create extra records.
 
 ## MVP Scope
 
@@ -529,6 +577,8 @@ The first working version only needs:
 - CostLog
 - ContextPackage
 
+Validation reports may remain file/artifact based during MVP.
+
 ## MVP Exclusions
 
 The first working version should not include these systems yet:
@@ -543,6 +593,8 @@ The first working version should not include these systems yet:
 - multi-tenant organization system
 - advanced analytics dashboard
 - marketplace for roles or tools
+- unnecessary department expansion
+- validation history database unless needed
 
 ## Future Backlog
 
@@ -561,6 +613,7 @@ Future candidates:
 - advanced reporting
 - plugin/tool registry
 - project templates marketplace
+- validation history dashboard
 
 ## Backlog Rule
 
@@ -574,7 +627,12 @@ Do not rely on memory alone.
 - Message stores readable content.
 - Run stores technical model execution details.
 - CostLog stores reporting-friendly usage records.
+- Validation reports stay outside the core data model until the UI needs them.
 
 ## Final Rule
 
-The database remembers. The model assists.
+The database remembers.
+
+The model assists.
+
+The Director controls records.
