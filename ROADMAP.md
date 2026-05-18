@@ -11,6 +11,7 @@ Current runtime phase:
 ```text
 Phase 9 — Validation Gate and Build Fixes
 Validation result pending
+Validation evidence required
 Deployment locked
 ```
 
@@ -173,15 +174,19 @@ Current runtime work includes:
 - validation gate runner
 - static preflight checks
 - validation report output
+- validation evidence checklist
 - GitHub Actions validation artifact
+- manual validation workflow trigger
 - lean department policy
 - Director-first classifier behavior
 - workflow simulations for Director-only and specialist-heavy paths
+- bootstrap/current-status recovery records
 - README and checklist synchronization
 
 Completion rules:
 
-- validation command passes
+- validation evidence exists
+- local validation report has passed status or Runtime Validation workflow has passed
 - static preflight passes
 - Prisma validate passes
 - Prisma generate passes
@@ -189,6 +194,10 @@ Completion rules:
 - Next build passes
 - workflow simulation passes
 - no deployment has started before validation pass
+
+Phase 9 does not close from configuration files alone.
+
+It closes only from a successful validation result.
 
 ## Milestone 10 — Deployment Preparation
 
@@ -200,7 +209,7 @@ Prepare controlled Render deployment after validation passes.
 
 Locked until:
 
-- Milestone 9 passes
+- Milestone 9 passes with evidence
 - owner approves deployment preparation
 - current pricing and tier selection are rechecked
 - environment variable plan is confirmed
