@@ -39,7 +39,7 @@ It should stay clean and mostly documentation-focused.
 
 ### Runtime Implementation Repository
 
-Recommended repository:
+Approved repository name:
 
 `nexora-studio-os-runtime`
 
@@ -68,7 +68,7 @@ Product repositories must not be mixed into the Studio OS runtime repository unl
 
 ## Implementation Repository Decision
 
-Recommended direction:
+Approved direction:
 
 Create a separate runtime implementation repository.
 
@@ -81,14 +81,13 @@ Reason:
 - keeps future product projects independent
 - allows the foundation repository to remain stable while runtime evolves
 
-Recommended name:
+Approved name:
 
 `nexora-studio-os-runtime`
 
 Status:
 
-- recommended
-- pending owner approval
+- owner-approved
 - runtime repo not created yet
 - runtime implementation not started yet
 
@@ -96,7 +95,7 @@ Status:
 
 ### Use Current Repository for Runtime
 
-Not recommended.
+Rejected for first MVP.
 
 Risk:
 
@@ -127,10 +126,12 @@ Risk:
 
 Creating or selecting the implementation repository requires owner approval.
 
-No runtime implementation should start until the repository decision is approved.
+The implementation repository direction is approved.
+
+No runtime implementation should start until the runtime MVP plan is approved.
 
 ## Final Rule
 
 This repository defines the studio.
 
-A separate runtime repository should run the studio after owner approval.
+A separate runtime repository will run the studio after creation and runtime MVP approval.
