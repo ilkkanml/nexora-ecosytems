@@ -111,3 +111,44 @@ Separating foundation documents from runtime code keeps the studio standard stab
 Status:
 
 APPROVED
+
+## 2026-05-17 — Runtime MVP Plan Approval
+
+Decision:
+
+Approve the first Runtime MVP plan for NEXORA Studio OS.
+
+Approved direction:
+
+- Build the smallest useful runtime that proves the Studio Director loop.
+- Runtime MVP is owner-only.
+- Use the approved MVP data model.
+- Use permanent roles only.
+- Implement one Director-controlled role call before any advanced automation.
+- Store messages, runs, decisions, memory, and token/cost records.
+- Exclude product projects, billing, public accounts, autonomous deployment, full GitHub PR automation, and autonomous coding engine from MVP.
+
+Approved phases:
+
+- Phase 0 — Runtime Repository Setup.
+- Phase 1 — Database Foundation.
+- Phase 2 — Owner-Only Shell.
+- Phase 3 — Director Workflow Loop.
+- Phase 4 — First OpenAI Role Call.
+- Phase 5 — Memory and Decision Acceptance.
+- Phase 6 — Render Deployment MVP.
+
+Boundaries:
+
+- Runtime MVP plan is approved.
+- Runtime repository still needs to be created.
+- Runtime implementation has not started yet.
+- No paid hosting resources should be created before tier and pricing confirmation.
+
+Reason:
+
+A narrow MVP prevents the studio runtime from becoming a large uncontrolled system before the core loop is proven.
+
+Status:
+
+APPROVED
