@@ -4,11 +4,19 @@
 
 Studio OS foundation setup is complete.
 
-Runtime MVP preparation is active.
+Runtime MVP implementation is active in the separate runtime repository.
+
+Current runtime phase:
+
+```text
+Phase 9 — Validation Gate and Build Fixes
+Validation result pending
+Deployment locked
+```
 
 No product project is active.
 
-Runtime implementation has not started yet.
+No paid hosting resources have been created.
 
 ## Status Values
 
@@ -26,34 +34,6 @@ Goal:
 
 Create the clean standard for the studio before implementation.
 
-Required documents:
-
-- README.md
-- STUDIO_STANDARD.md
-- OPENAI_USAGE_STANDARD.md
-- DATA_STANDARD.md
-- DATA_MODEL.md
-- WORKFLOW.md
-- HOSTING.md
-- PROJECT_INTAKE.md
-- REPOSITORY_MAP.md
-- ROADMAP.md
-- DECISION_LOG.md
-
-Completion rules:
-
-- owner-facing Director model is defined
-- minimal roles are defined
-- truth standard is defined
-- token economy is defined
-- data ownership is defined
-- data model is defined
-- workflow is defined
-- hosting requirements are defined
-- project intake rule is defined
-- approval rule is defined
-- no product project is active
-
 Result:
 
 Foundation document set is complete and clean.
@@ -66,17 +46,9 @@ Goal:
 
 Review and approve the MVP database model for Studio OS.
 
-Completion rules:
-
-- all required entities are approved
-- entity relationships are clear
-- sensitive data rules are approved
-- PostgreSQL source-of-truth rule is approved
-- Redis temporary-use rule is approved
-
 Result:
 
-MVP data model is accepted for planning. Runtime schema implementation has not started yet.
+MVP data model is accepted for runtime implementation.
 
 ## Milestone 2 — Workflow Review
 
@@ -86,17 +58,9 @@ Goal:
 
 Review and approve the first working studio loop.
 
-Completion rules:
-
-- owner to Director flow is approved
-- role call policy is approved
-- controlled review policy is approved
-- approval gate is approved
-- failure rule is approved
-
 Result:
 
-The first Studio OS operating workflow is accepted for planning. Runtime implementation has not started yet.
+The first Studio OS operating workflow is accepted for runtime implementation.
 
 ## Milestone 3 — Hosting Decision
 
@@ -106,24 +70,9 @@ Goal:
 
 Choose the permanent runtime target.
 
-Requirements:
-
-- stable Node.js runtime
-- PostgreSQL
-- Redis or queue support
-- GitHub deployment
-- environment variables
-- logs
-- backups
-- custom domain support
-- secure secret management
-- estimated monthly cost
-
 Result:
 
 Render Managed Platform is approved as the first Studio OS runtime hosting direction.
-
-Implementation has not started yet.
 
 Pricing and selected tiers must be rechecked before paid resources are created.
 
@@ -135,30 +84,13 @@ Goal:
 
 Decide where the first Studio OS implementation will live.
 
-Options:
-
-- dedicated new repository
-- existing platform repository later
-- monorepo structure
-
-Completion rules:
-
-- implementation repository is selected
-- stack is selected
-- first implementation milestone is created
-- no product project is mixed into the foundation implementation
-
 Result:
 
 Separate runtime repository direction is approved.
 
-Approved runtime repository name:
+Approved runtime repository:
 
-`nexora-studio-os-runtime`
-
-The runtime repository has not been created yet.
-
-Runtime implementation has not started yet.
+`ilkkanml/nexora-studio-os-runtime`
 
 ## Milestone 5 — Runtime MVP Planning
 
@@ -168,46 +100,126 @@ Goal:
 
 Plan the first working Studio OS runtime after hosting and repository decisions are approved.
 
-Initial runtime scope:
-
-- project creation
-- role list
-- task creation
-- single role call
-- message storage
-- decision storage
-- memory storage
-- cost logging
-
 Result:
 
 Runtime MVP plan is owner-approved.
 
-Runtime implementation has not started yet.
-
-Runtime repository still needs to be created.
-
 ## Milestone 6 — Runtime Repository Setup
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
 Create the approved runtime repository and prepare the basic project structure.
 
-Approved repository name:
+Result:
 
-`nexora-studio-os-runtime`
+Runtime repository exists and contains no product project code.
+
+Repository:
+
+`ilkkanml/nexora-studio-os-runtime`
+
+## Milestone 7 — Runtime Foundation Implementation
+
+Status: PASSED
+
+Goal:
+
+Implement the first runtime foundation.
+
+Result:
+
+Runtime repository includes:
+
+- Next.js owner-only shell
+- Prisma schema foundation
+- Director workflow classifier
+- permanent role registry
+- controlled role-call foundation
+- memory and decision acceptance foundation
+- model routing foundation
+- Render preparation template
+
+## Milestone 8 — Safety Hardening
+
+Status: PASSED
+
+Goal:
+
+Add safety hardening before deployment.
+
+Result:
+
+Runtime includes:
+
+- secret redaction helper
+- owner-only production middleware gate
+- task approval and model route approval split
+- unconfigured model route blocking
+- workflow simulation foundation
+- validation checklist foundation
+
+## Milestone 9 — Validation Gate and Lean Workflow
+
+Status: IN_PROGRESS
+
+Goal:
+
+Validate runtime readiness before deployment and prevent unnecessary workflow bloat.
+
+Current runtime work includes:
+
+- validation gate runner
+- static preflight checks
+- validation report output
+- GitHub Actions validation artifact
+- lean department policy
+- Director-first classifier behavior
+- workflow simulations for Director-only and specialist-heavy paths
+- README and checklist synchronization
 
 Completion rules:
 
-- runtime repository exists
-- repository contains no product project code
-- basic README exists
-- environment variable template exists without secrets
-- initial implementation notes exist
-- no paid hosting resources are created yet
+- validation command passes
+- static preflight passes
+- Prisma validate passes
+- Prisma generate passes
+- TypeScript check passes
+- Next build passes
+- workflow simulation passes
+- no deployment has started before validation pass
+
+## Milestone 10 — Deployment Preparation
+
+Status: LOCKED
+
+Goal:
+
+Prepare controlled Render deployment after validation passes.
+
+Locked until:
+
+- Milestone 9 passes
+- owner approves deployment preparation
+- current pricing and tier selection are rechecked
+- environment variable plan is confirmed
+
+## Milestone 11 — First Private Runtime Deployment
+
+Status: LOCKED
+
+Goal:
+
+Deploy owner-only private runtime.
+
+Locked until:
+
+- Milestone 10 passes
+- database migration plan is approved
+- owner access token plan is confirmed
+- health check plan is confirmed
 
 ## Final Rule
 
-Do not start product project work until the Studio OS runtime proves the Director workflow, database memory, role call, decision, and cost logging loop.
+Do not start product project work until the Studio OS runtime proves the Director workflow, database memory, role call, decision, validation, and cost logging loop.
