@@ -4,18 +4,33 @@
 
 OpenAI is used as the reasoning and generation engine for NEXORA Studio OS.
 
-The studio backend owns orchestration, storage, approval, memory, and workflow.
+The studio backend owns orchestration, storage, approval, memory, validation, cost control, and workflow.
+
+OpenAI is not the permanent memory store.
 
 ## Default Rules
 
 - Use the smallest useful context.
 - Do not send full project history by default.
+- Keep simple status, recap, record review, and simple planning Director-only when possible.
+- Use specialist model calls only when the work is heavy, risky, technical, or quality-sensitive.
 - Do not send secrets, private keys, environment files, payment card data, or unnecessary personal data.
 - Store permanent project memory in the owner database.
 - Use structured outputs for role responses when possible.
-- Log token usage and estimated cost for each run.
+- Log token usage and estimated cost for each model run.
 - Use model tiers based on task difficulty.
 - Do not run uncontrolled multi-role loops.
+- Do not use high-cost or restricted model routes without owner approval.
+
+## Lean Model Use Rule
+
+The best model call is the one that was actually needed.
+
+Do not call a specialist model for simple records, summaries, or status checks.
+
+Do not use a stronger model only because it is available.
+
+Use role calls to reduce risk, not to create ceremony.
 
 ## Prompt Structure
 
@@ -25,6 +40,7 @@ Keep stable text at the top:
 - role definition
 - output schema
 - truth standard
+- lean workflow rule
 
 Put changing text near the end:
 
@@ -46,6 +62,13 @@ Use lower-cost models for:
 - memory writing
 - simple QA checks
 - formatting
+- simple status support
+
+Use standard models for:
+
+- normal planning
+- normal implementation reasoning
+- ordinary role outputs
 
 Use stronger models for:
 
@@ -55,11 +78,19 @@ Use stronger models for:
 - cross-project planning
 - final Director synthesis when risk is high
 
+Use restricted or high-cost routes only for:
+
+- unusually long context
+- failed prior attempts
+- high-risk architecture
+- owner-approved expensive reasoning paths
+
 ## Conversation State
 
 Default approach:
 
-- own database stores state
+- owner database stores state
+- Studio Director controls records
 - context builder prepares each request
 - OpenAI receives only what is needed for the task
 
@@ -79,22 +110,44 @@ Role outputs should be structured:
 
 Confidence values:
 
-- verified
-- inferred
-- assumption
-- unknown
+- VERIFIED
+- INFERRED
+- ASSUMPTION
+- UNKNOWN
 
 ## Cost Control
 
-Each run should record:
+Each model run should record:
 
 - model
+- model route tier
+- reasoning effort when available
 - input tokens
 - output tokens
 - estimated cost
-- task id
-- role id
+- task id when available
+- role id when available
+
+## Approval Control
+
+Owner approval is required before:
+
+- restricted model route
+- high-cost model route
+- unusually large context request
+- deployment-impacting model action
+- security-sensitive model action
+
+## Validation Rule
+
+Model routing and workflow behavior should be covered by simulation before deployment.
+
+Deployment remains locked until validation passes.
 
 ## Final Rule
 
-The model assists. The studio system controls.
+The model assists.
+
+The studio system controls.
+
+Small context beats expensive confusion.
