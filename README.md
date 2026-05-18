@@ -8,6 +8,14 @@ It is not a product project.
 It is not the runtime app.
 It is the foundation and operating standard for the runtime app.
 
+## Start Here
+
+For the latest short status, read:
+
+```text
+CURRENT_STATUS.md
+```
+
 ## Current Focus
 
 Keep the Studio OS foundation aligned with the runtime implementation.
@@ -57,6 +65,7 @@ No unnecessary paperwork.
 
 ## Active Documents
 
+- `CURRENT_STATUS.md` — latest short project snapshot
 - `STUDIO_STANDARD.md` — studio rules, roles, truth standard, approvals
 - `OPENAI_USAGE_STANDARD.md` — OpenAI API usage, token control, model policy
 - `DATA_STANDARD.md` — permanent memory and storage rules
