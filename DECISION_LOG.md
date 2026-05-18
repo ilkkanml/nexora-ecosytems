@@ -218,3 +218,31 @@ The runtime should not be deployed before its safety, schema, build, and workflo
 Status:
 
 APPROVED
+
+## 2026-05-18 — Runtime Gate Visibility and Deployment Readiness
+
+Decision:
+
+Runtime gate state must be visible through code, dashboard, API, documents, and static preflight.
+
+Approved direction:
+
+- Runtime status must be exposed through `GET /api/runtime-status`.
+- Validation status must be exposed through `GET /api/validation-status`.
+- Latest validation report state must be exposed through `GET /api/validation-report`.
+- Deployment readiness must be exposed through `GET /api/deployment-readiness`.
+- Dashboard must show latest validation evidence.
+- Dashboard must show deployment readiness.
+- Deployment readiness is not deployment.
+- A passed readiness check only means Phase 10 may be planned after owner approval.
+- Paid resources, production database setup, and deployment remain locked until explicit owner approval.
+
+Reason:
+
+The runtime should not rely on chat memory or manual interpretation to decide whether the next gate can open.
+
+Validation evidence and deployment readiness must be visible, auditable, and protected by preflight.
+
+Status:
+
+APPROVED
