@@ -98,7 +98,7 @@ The first Studio OS operating workflow is accepted for planning. Runtime impleme
 
 ## Milestone 3 — Hosting Decision
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
@@ -117,9 +117,17 @@ Requirements:
 - secure secret management
 - estimated monthly cost
 
+Result:
+
+Render Managed Platform is approved as the first Studio OS runtime hosting direction.
+
+Implementation has not started yet.
+
+Pricing and selected tiers must be rechecked before paid resources are created.
+
 ## Milestone 4 — Implementation Repository Decision
 
-Status: NOT_STARTED
+Status: IN_PROGRESS
 
 Goal:
 
