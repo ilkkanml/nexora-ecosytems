@@ -10,6 +10,8 @@ Director bootstrap protocol: implemented
 Runtime phase: Phase 9 — Validation Gate and Build Fixes
 Runtime validation: pending
 Runtime validation evidence: required
+Runtime status/readiness APIs: implemented
+Runtime deployment readiness gate: implemented
 Runtime deployment: locked
 Product projects: locked
 Paid resources: none
@@ -59,8 +61,21 @@ Lean department policy implemented.
 Validation gate reporting implemented.
 Director bootstrap protocol implemented.
 Validation evidence checklist implemented.
+Runtime status API implemented.
+Validation UI/API implemented.
+Validation report reader/API implemented.
+Deployment readiness gate/API implemented.
 Validation result pending.
 Deployment locked.
+```
+
+## Current Runtime Endpoints
+
+```text
+GET /api/runtime-status
+GET /api/validation-status
+GET /api/validation-report
+GET /api/deployment-readiness
 ```
 
 ## Current Operating Rule
@@ -84,14 +99,16 @@ npm install
 npm run validate:local
 ```
 
-Runtime evidence rule:
+Runtime evidence and readiness rule:
 
 ```text
 No validation evidence, no pass.
 No validation pass, no deployment.
+Readiness is not deployment.
+Phase 10 requires owner approval after validation passes.
 ```
 
-Deployment preparation remains locked until validation passes with evidence.
+Deployment preparation remains locked until validation passes with evidence and owner approval is given.
 
 ## Current Milestones
 
@@ -127,7 +144,7 @@ Do not start:
 
 Get runtime validation evidence from the runtime repository.
 
-If validation passes with evidence, Phase 9 can close and Phase 10 deployment preparation can be planned.
+If validation passes with evidence, Phase 9 can close and Phase 10 deployment preparation can be planned only after owner approval.
 
 If validation fails, fix the first failed validation step and re-run validation.
 
@@ -138,5 +155,7 @@ Foundation defines the studio.
 Runtime proves the studio.
 
 Evidence unlocks the next gate.
+
+Readiness is not deployment.
 
 Product projects come later.
