@@ -2,11 +2,13 @@
 
 ## Current Phase
 
-Studio OS foundation setup.
+Studio OS foundation setup is complete.
+
+Runtime MVP preparation is active.
 
 No product project is active.
 
-No runtime implementation has started.
+Runtime implementation has not started yet.
 
 ## Status Values
 
@@ -160,7 +162,7 @@ Runtime implementation has not started yet.
 
 ## Milestone 5 — Runtime MVP Planning
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
@@ -177,6 +179,35 @@ Initial runtime scope:
 - memory storage
 - cost logging
 
+Result:
+
+Runtime MVP plan is owner-approved.
+
+Runtime implementation has not started yet.
+
+Runtime repository still needs to be created.
+
+## Milestone 6 — Runtime Repository Setup
+
+Status: IN_PROGRESS
+
+Goal:
+
+Create the approved runtime repository and prepare the basic project structure.
+
+Approved repository name:
+
+`nexora-studio-os-runtime`
+
+Completion rules:
+
+- runtime repository exists
+- repository contains no product project code
+- basic README exists
+- environment variable template exists without secrets
+- initial implementation notes exist
+- no paid hosting resources are created yet
+
 ## Final Rule
 
-Do not start implementation before foundation, hosting, repository direction, and runtime MVP plan are approved.
+Do not start product project work until the Studio OS runtime proves the Director workflow, database memory, role call, decision, and cost logging loop.
