@@ -10,48 +10,64 @@ The workflow must keep the studio fast, controlled, truthful, and low-noise.
 
 The owner speaks with the Studio Director.
 
-The Studio Director controls role calls, context size, summaries, approvals, memory storage, and next actions.
+The Studio Director controls intake, classification, role calls, context size, summaries, approvals, memory storage, records, and next actions.
 
 Roles answer only their assigned task.
+
+## Lean Workflow Rule
+
+Default to Director-only.
+
+Use a specialist only when the work is heavy, risky, technical, or quality-sensitive.
+
+Records stay with the Director.
+
+Do not create unnecessary departments.
+
+Do not create unnecessary paperwork.
 
 ## Default Flow
 
 1. Owner gives a request.
 2. Studio Director identifies the real task.
 3. Director classifies the task type.
-4. Director decides whether a role call is needed.
-5. Context Builder prepares the smallest useful context.
-6. One role answers the assigned task.
-7. Director checks result, risk, missing information, and next action.
-8. Owner approval is requested when needed.
-9. Accepted output is stored as memory.
-10. Cost and token usage are logged.
+4. Director keeps simple work Director-only.
+5. Director decides whether a specialist role call is justified.
+6. Context Builder prepares the smallest useful context when a role call is needed.
+7. One role answers the assigned task when justified.
+8. Director checks result, risk, missing information, and next action.
+9. Owner approval is requested when needed.
+10. Accepted output is stored as memory or decision only when useful.
+11. Cost and token usage are logged when model calls occur.
 
 ## Workflow Modes
 
 ### Director Only
 
-Use when the request can be answered from existing approved memory or current standards.
+Default mode.
+
+Use when the request can be answered from existing approved memory, current standards, or simple reasoning without heavy implementation risk.
 
 Examples:
 
 - status summary
 - simple decision recap
+- compact record review
 - next-step explanation
 - asking what is currently active
+- simple planning
+- documentation organization that does not change architecture
 
-### Single Role
+### Single Specialist Role
 
-Default execution mode.
-
-Use when one role can answer the task clearly.
+Use only when one specialist role clearly reduces risk or improves quality.
 
 Examples:
 
-- Product Architect defines scope
-- Builder reviews technical shape
-- QA Reviewer checks risk
-- Memory Writer summarizes accepted output
+- Product Architect reviews heavy architecture or scalability direction
+- Builder handles code, implementation, schema, or deployment preparation
+- QA Reviewer checks security-sensitive or high-risk workflow
+- Memory Writer prepares accepted output for compact storage
 
 ### Controlled Review
 
@@ -64,10 +80,11 @@ Examples:
 - implementation repository decision
 - security-sensitive workflow
 - project activation decision
+- repeated validation failure with unclear root cause
 
 ### Owner Approval
 
-Use when a decision changes direction, starts implementation, changes data, changes hosting, changes security posture, or activates a project.
+Use when a decision changes direction, starts implementation, changes data, changes hosting, changes security posture, uses restricted model routing, or activates a project.
 
 ## Owner Interface
 
@@ -83,17 +100,20 @@ Detailed role outputs can be shown only when needed.
 
 For each owner request, the Studio Director decides:
 
-1. Is this already answered by approved memory?
-2. Is a role call needed?
-3. Which single role is sufficient?
-4. Is controlled review required?
-5. Is owner approval required?
-6. Should the result be stored as memory?
-7. Should a decision record be created?
+1. Is this status, recap, record review, or simple planning?
+2. Can this stay Director-only?
+3. Is a role call actually justified?
+4. Which single role is sufficient?
+5. Is controlled review required?
+6. Is owner approval required?
+7. Should the result be stored as memory?
+8. Should a decision record be created?
 
 ## Role Call Policy
 
-Default:
+Role calls are not the default for simple work.
+
+When used, keep them narrow:
 
 - one task
 - one role
@@ -210,6 +230,7 @@ Owner approval is required before:
 - implementation repository decision
 - project activation
 - project direction change
+- restricted model route
 
 Approval result can be:
 
@@ -225,12 +246,14 @@ Store:
 - decisions
 - approvals
 - task state
-- role outputs
+- role outputs when useful
 - model runs
 - cost records
 - compact memory
 
 Do not store unnecessary sensitive data in prompts or memory.
+
+Do not create duplicate documents for simple chatter.
 
 ## Failure Rule
 
@@ -256,3 +279,5 @@ A workflow is complete only when:
 ## Final Rule
 
 Small verified steps beat large unclear progress.
+
+Director-first beats department sprawl.
