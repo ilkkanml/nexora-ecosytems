@@ -6,12 +6,23 @@
 Foundation repository: ilkkanml/nexora-ecosytems
 Runtime repository: ilkkanml/nexora-studio-os-runtime
 Foundation status: approved and synced
+Director bootstrap protocol: implemented
 Runtime phase: Phase 9 — Validation Gate and Build Fixes
 Runtime validation: pending
 Runtime deployment: locked
 Product projects: locked
 Paid resources: none
 ```
+
+## Start Here
+
+For new chat, new session, or long pause recovery, read:
+
+```text
+DIRECTOR_BOOTSTRAP.md
+```
+
+Then continue from this file.
 
 ## Purpose Of This Repository
 
@@ -45,6 +56,7 @@ Runtime foundation implemented.
 Safety hardening implemented.
 Lean department policy implemented.
 Validation gate reporting implemented.
+Director bootstrap protocol implemented.
 Validation result pending.
 Deployment locked.
 ```
