@@ -12,6 +12,8 @@ Current runtime phase:
 Phase 9 — Validation Gate and Build Fixes
 Validation result pending
 Validation evidence required
+Runtime status/readiness APIs implemented
+Deployment readiness gate implemented
 Deployment locked
 ```
 
@@ -175,6 +177,12 @@ Current runtime work includes:
 - static preflight checks
 - validation report output
 - validation evidence checklist
+- validation report reader/API
+- validation status API
+- runtime status API
+- deployment readiness gate/API
+- dashboard validation evidence section
+- dashboard deployment readiness section
 - GitHub Actions validation artifact
 - manual validation workflow trigger
 - lean department policy
@@ -193,11 +201,16 @@ Completion rules:
 - TypeScript check passes
 - Next build passes
 - workflow simulation passes
+- deployment readiness reports ready for Phase 10
 - no deployment has started before validation pass
 
 Phase 9 does not close from configuration files alone.
 
 It closes only from a successful validation result.
+
+Readiness is not deployment.
+
+Phase 10 still requires owner approval after validation passes.
 
 ## Milestone 10 — Deployment Preparation
 
@@ -210,6 +223,7 @@ Prepare controlled Render deployment after validation passes.
 Locked until:
 
 - Milestone 9 passes with evidence
+- deployment readiness gate says Phase 10 may be planned
 - owner approves deployment preparation
 - current pricing and tier selection are rechecked
 - environment variable plan is confirmed
