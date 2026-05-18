@@ -152,3 +152,69 @@ A narrow MVP prevents the studio runtime from becoming a large uncontrolled syst
 Status:
 
 APPROVED
+
+## 2026-05-18 — Runtime Repository Active
+
+Decision:
+
+Runtime implementation repository is active.
+
+Approved direction:
+
+- Runtime implementation lives in `ilkkanml/nexora-studio-os-runtime`.
+- Foundation repository remains standards and decisions only.
+- Runtime repository contains no product project code.
+- Product project activation remains blocked until the Studio OS runtime proves the core loop.
+
+Status:
+
+APPROVED
+
+## 2026-05-18 — Lean Department Policy
+
+Decision:
+
+Adopt Director-first workflow and avoid unnecessary departments.
+
+Approved direction:
+
+- Studio Director is the default control point.
+- Simple status, recap, record review, and simple planning stay Director-only.
+- Specialists are used only for heavy, risky, technical, or quality-sensitive work.
+- Records stay with the Director.
+- New permanent departments must not be added casually.
+- Temporary specialists may be used only for narrow, justified work.
+
+Reason:
+
+The Studio OS must stay fast and useful without increasing error risk.
+
+Unnecessary departments and documents slow the project.
+
+Skipping specialist review for heavy work increases risk.
+
+Status:
+
+APPROVED
+
+## 2026-05-18 — Validation Before Deployment
+
+Decision:
+
+Deployment remains locked until validation passes.
+
+Approved direction:
+
+- Runtime validation must run before deployment preparation.
+- Validation gate must check static preflight, Prisma validate, Prisma generate, TypeScript, build, and workflow simulation.
+- Validation should produce readable reports.
+- GitHub Actions should preserve validation reports as artifacts.
+- Phase 10 deployment preparation remains locked until Phase 9 validation passes.
+
+Reason:
+
+The runtime should not be deployed before its safety, schema, build, and workflow checks pass.
+
+Status:
+
+APPROVED
