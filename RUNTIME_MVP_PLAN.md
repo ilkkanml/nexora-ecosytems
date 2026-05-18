@@ -10,7 +10,7 @@ The goal is to build the smallest useful version that proves the Studio Director
 
 ## Current Boundary
 
-Runtime MVP planning is active.
+Runtime MVP plan is owner-approved.
 
 Runtime implementation has not started yet.
 
@@ -420,9 +420,11 @@ Stop implementation and return to Director review if:
 - database memory is bypassed
 - OpenAI is treated as permanent memory
 
-## Approval Requirement
+## Approval Status
 
-Runtime MVP plan must be owner-approved before runtime implementation starts.
+Runtime MVP plan is owner-approved.
+
+Runtime implementation may begin only after the runtime repository exists and the first implementation task is created.
 
 ## Final Rule
 
