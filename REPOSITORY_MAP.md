@@ -1,6 +1,6 @@
 # Repository Map
 
-## Current Repository
+## Foundation Repository
 
 `ilkkanml/nexora-ecosytems`
 
@@ -10,19 +10,58 @@ Clean planning and standard repository for NEXORA Studio OS.
 
 Current status:
 
-Foundation, standards, decisions, roadmap, and operating rules only.
+Foundation, standards, decisions, roadmap, and operating rules.
 
-No runtime implementation yet.
+This repository defines how the studio should work.
+
+It should stay clean and mostly documentation-focused.
+
+It is not the runtime app.
+
+## Runtime Implementation Repository
+
+Active runtime repository:
+
+`ilkkanml/nexora-studio-os-runtime`
+
+Role:
+
+- actual Studio OS application code
+- frontend shell
+- backend foundation
+- Prisma database schema
+- validation gate
+- owner-only access gate
+- OpenAI integration foundation
+- model routing foundation
+- memory and decision acceptance foundation
+- Render deployment preparation
+
+Current runtime status:
+
+```text
+Phase 9 — Validation Gate and Build Fixes
+Runtime foundation implemented.
+Safety hardening implemented.
+Lean department policy implemented.
+Validation gate reporting implemented.
+Validation result pending.
+Deployment locked.
+```
+
+This repository will run the studio after validation and controlled deployment preparation.
+
+## Product Repositories
+
+No product repository is active during the Studio OS runtime foundation phase.
+
+Future projects may be added only through `PROJECT_INTAKE.md` rules.
+
+Product repositories must not be mixed into the Studio OS runtime repository unless explicitly approved later.
 
 ## Repository Roles
 
-### Foundation Repository
-
-Current repository:
-
-`ilkkanml/nexora-ecosytems`
-
-Role:
+### Foundation Repository Role
 
 - studio constitution
 - standards
@@ -32,45 +71,27 @@ Role:
 - workflow planning
 - hosting direction
 - project intake rules
+- implementation boundary
 
-This repository defines how the studio should work.
+### Runtime Repository Role
 
-It should stay clean and mostly documentation-focused.
+- owner-only runtime MVP
+- Studio Director workflow implementation
+- database schema implementation
+- validation and safety gates
+- deployment preparation
 
-### Runtime Implementation Repository
+### Product Repository Role
 
-Approved repository name:
+Future only.
 
-`nexora-studio-os-runtime`
-
-Role:
-
-- actual Studio OS application code
-- frontend
-- backend
-- database schema
-- migrations
-- API routes
-- authentication if needed
-- OpenAI integration
-- GitHub integration
-- Render deployment configuration
-
-This repository will run the studio.
-
-## Product Repositories
-
-No product repository is active during the Studio OS foundation phase.
-
-Future projects may be added only through `PROJECT_INTAKE.md` rules.
-
-Product repositories must not be mixed into the Studio OS runtime repository unless explicitly approved later.
+Product repositories will contain actual product/game/app code after the Studio OS runtime proves the core loop.
 
 ## Implementation Repository Decision
 
 Approved direction:
 
-Create a separate runtime implementation repository.
+Use a separate runtime implementation repository.
 
 Reason:
 
@@ -81,19 +102,20 @@ Reason:
 - keeps future product projects independent
 - allows the foundation repository to remain stable while runtime evolves
 
-Approved name:
+Approved repository:
 
-`nexora-studio-os-runtime`
+`ilkkanml/nexora-studio-os-runtime`
 
 Status:
 
-- owner-approved
-- runtime repo not created yet
-- runtime implementation not started yet
+- repository exists
+- runtime implementation has started
+- Phase 9 validation gate is active
+- deployment is locked until validation passes
 
 ## Alternative Options
 
-### Use Current Repository for Runtime
+### Use Foundation Repository for Runtime
 
 Rejected for first MVP.
 
@@ -113,7 +135,7 @@ Risk:
 - useful later, but too heavy for first MVP
 - can encourage premature structure complexity
 
-### Existing Platform Repository
+### Existing Product Repository
 
 Deferred.
 
@@ -124,14 +146,12 @@ Risk:
 
 ## Approval Rule
 
-Creating or selecting the implementation repository requires owner approval.
-
-The implementation repository direction is approved.
-
-No runtime implementation should start until the runtime MVP plan is approved.
+Creating paid resources, deploying runtime, or activating product repositories requires owner approval.
 
 ## Final Rule
 
 This repository defines the studio.
 
-A separate runtime repository will run the studio after creation and runtime MVP approval.
+The runtime repository runs the studio after validation.
+
+Product repositories come later.
