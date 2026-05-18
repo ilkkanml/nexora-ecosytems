@@ -117,7 +117,7 @@ Risk:
 
 ### Option A — Render Managed Platform
 
-Recommended for the first Studio OS runtime MVP.
+Selected for the first Studio OS runtime MVP.
 
 Shape:
 
@@ -145,16 +145,17 @@ Risk:
 - estimated cost can grow with database, worker, Redis, and compute tiers
 - long-term scaling may require split services later
 - advanced observability may need add-ons later
+- final pricing must be rechecked on setup day before paid services are created
 
 Estimated MVP cost:
 
-- low MVP: approximately $17-$30/month
-- safer small production: approximately $30-$60/month
+- low paid MVP: approximately $13-$30/month depending on selected service and datastore tiers
+- safer small production: approximately $30-$80/month depending on workspace, compute, database, and key-value tiers
 
 Status:
 
-- recommended
-- not yet owner-approved
+- owner-approved hosting direction
+- implementation still not started
 
 ### Option B — Railway Managed Platform
 
@@ -189,7 +190,7 @@ Estimated MVP cost:
 Status:
 
 - alternative
-- not selected yet
+- not selected
 
 ### Option C — Split Managed Stack
 
@@ -227,7 +228,7 @@ Estimated MVP cost:
 Status:
 
 - future-friendly alternative
-- not recommended as first path unless frontend requirements demand it
+- not selected as first path
 
 ### Option D — VPS with Docker
 
@@ -244,11 +245,11 @@ Status:
 
 - deferred
 
-## Recommended Direction
+## Approved Direction
 
-Use Render Managed Platform for the first Studio OS runtime MVP, pending owner approval.
+Use Render Managed Platform for the first Studio OS runtime MVP.
 
-Recommended MVP shape:
+Approved MVP shape:
 
 - Frontend host: Render
 - Backend host: Render Node.js Web Service
@@ -256,17 +257,25 @@ Recommended MVP shape:
 - Redis provider: Render Key Value or Redis-compatible queue layer
 - Deployment method: GitHub auto-deploy after implementation repo is selected
 - Backup approach: managed Postgres backup / recovery features plus manual export policy before production use
-- Estimated monthly cost: approximately $17-$60 depending on selected service tiers
+- Estimated monthly cost: approximately $13-$80 depending on selected service tiers
 - Scaling path: start managed, split database/Redis/frontend later only when real usage requires it
 
-## Approval Requirement
+## Pricing Verification Rule
 
-Hosting direction is a major architecture decision.
+Provider pricing can change.
 
-It must remain pending until owner approval.
+Before creating paid runtime resources, check current provider pricing and confirm the selected tiers.
 
-No implementation should start from this recommendation alone.
+Do not treat old estimates as final billing commitments.
+
+## Implementation Boundary
+
+Hosting direction is approved.
+
+Runtime implementation has not started yet.
+
+Implementation still requires implementation repository decision and runtime MVP planning.
 
 ## Final Rule
 
-Do not start implementation until the permanent hosting direction is approved.
+Do not start implementation until the permanent hosting direction, implementation repository, and runtime MVP plan are approved.
