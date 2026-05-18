@@ -82,3 +82,32 @@ Render keeps the first Studio OS runtime simple by grouping app runtime, Postgre
 Status:
 
 APPROVED
+
+## 2026-05-17 — Separate Runtime Repository Approval
+
+Decision:
+
+Approve a separate runtime implementation repository for NEXORA Studio OS.
+
+Approved direction:
+
+- Current repository remains the foundation and standards repository.
+- Runtime code must live in a separate repository.
+- Approved runtime repository name: `nexora-studio-os-runtime`.
+- Product projects must not be mixed into the runtime repository.
+- Runtime implementation must wait for Runtime MVP Planning approval.
+
+Boundaries:
+
+- Repository direction is approved.
+- Runtime repository has not been created yet.
+- Runtime implementation has not started yet.
+- Runtime MVP planning is now the active milestone.
+
+Reason:
+
+Separating foundation documents from runtime code keeps the studio standard stable, reduces scope confusion, and allows clean deployment setup.
+
+Status:
+
+APPROVED
