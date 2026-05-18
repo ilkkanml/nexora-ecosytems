@@ -6,17 +6,31 @@ This document defines the first working runtime scope for NEXORA Studio OS.
 
 The goal is not to build the full studio.
 
-The goal is to build the smallest useful version that proves the Studio Director workflow, database memory, role calls, and cost logging can work together.
+The goal is to build the smallest useful version that proves the Studio Director workflow, database memory, role calls, validation, and cost logging can work together.
 
 ## Current Boundary
 
 Runtime MVP plan is owner-approved.
 
-Runtime implementation has not started yet.
+Runtime implementation is active in:
 
-The runtime repository has not been created yet.
+`ilkkanml/nexora-studio-os-runtime`
+
+Current runtime state:
+
+```text
+Phase 9 — Validation Gate and Build Fixes
+Runtime foundation implemented.
+Safety hardening implemented.
+Lean department policy implemented.
+Validation gate reporting implemented.
+Validation result pending.
+Deployment locked.
+```
 
 No product project is active.
+
+No paid hosting resources have been created.
 
 ## Approved Runtime Direction
 
@@ -27,7 +41,7 @@ Hosting direction:
 Repository direction:
 
 - separate runtime repository
-- approved name: `nexora-studio-os-runtime`
+- active repository: `ilkkanml/nexora-studio-os-runtime`
 
 Database direction:
 
@@ -37,7 +51,25 @@ Database direction:
 AI direction:
 
 - OpenAI is the reasoning and generation engine
-- Studio OS owns orchestration, memory, approvals, and workflow
+- Studio OS owns orchestration, memory, approvals, validation, and workflow
+
+## Lean Runtime Workflow
+
+Default behavior:
+
+```text
+Director-only first.
+Specialists only when the work is heavy, risky, technical, or quality-sensitive.
+Records stay with the Director.
+No unnecessary departments.
+No unnecessary paperwork.
+```
+
+Simple status, recap, record review, and simple planning stay with the Studio Director.
+
+Heavy architecture routes to Product Architect.
+
+Code, database, deployment, and security-sensitive work require controlled specialist handling and approval where needed.
 
 ## MVP Goal
 
@@ -46,13 +78,17 @@ Create a private owner-controlled Studio OS runtime that can:
 1. create and view a project
 2. define the permanent studio roles
 3. create and track tasks
-4. run one controlled role call through the Studio Director workflow
-5. store conversation messages
-6. store model run records
-7. store decisions
-8. store compact memory
-9. store cost/token usage
-10. show a clear next action
+4. classify owner requests through the Studio Director
+5. keep simple work Director-only
+6. route heavy or risky work to the right specialist
+7. run one controlled role call through the Studio Director workflow
+8. store conversation messages
+9. store model run records
+10. store decisions
+11. store compact memory
+12. store cost/token usage
+13. show a clear next action
+14. validate before deployment
 
 ## MVP User
 
@@ -78,6 +114,7 @@ Shows:
 - latest decisions
 - latest memory records
 - token/cost summary
+- validation status
 
 ### Projects
 
@@ -92,7 +129,8 @@ Allows:
 Allows:
 
 - create task
-- assign required role
+- assign required role when justified
+- keep simple tasks Director-only
 - set task status
 - view task history
 
@@ -104,6 +142,7 @@ Allows:
 - Director classifies task
 - Director prepares or confirms next action
 - role call can be triggered when needed
+- approval can be requested when needed
 
 ### Conversations
 
@@ -135,6 +174,8 @@ Shows:
 Shows:
 
 - model
+- model route tier
+- reasoning effort
 - input tokens
 - output tokens
 - estimated cost
@@ -154,7 +195,11 @@ Required backend capabilities:
 - memory storage
 - cost logging
 - minimal context package creation
-- OpenAI request execution for one role call
+- Director classification
+- model route policy
+- owner approval gates
+- OpenAI request execution for controlled role calls
+- validation gate reporting
 
 ## MVP Database Scope
 
@@ -173,6 +218,8 @@ Use the approved MVP entities from `DATA_MODEL.md`:
 - CostLog
 - ContextPackage
 
+Runtime schema now also tracks model route metadata where needed.
+
 ## MVP Role Scope
 
 Permanent roles only:
@@ -189,150 +236,125 @@ No unlimited agents.
 
 No autonomous role loops.
 
+No casual permanent department creation.
+
 ## MVP AI Flow
 
 Default first flow:
 
-1. Owner creates or selects a task.
-2. Studio Director identifies the task type.
-3. Context Builder prepares smallest useful context.
-4. One role receives one task.
-5. Role returns structured output.
-6. Director summarizes result, risk, missing information, and next action.
-7. Owner accepts or rejects the result.
-8. Accepted output becomes memory if useful.
-9. Run and cost records are stored.
+1. Owner sends a request.
+2. Studio Director classifies the request.
+3. Simple status, recap, record review, and simple planning remain Director-only.
+4. Heavy, risky, technical, or quality-sensitive work routes to the smallest justified specialist path.
+5. Context Builder prepares the smallest useful context.
+6. One role receives one task when needed.
+7. Role returns structured output.
+8. Director summarizes result, risk, missing information, and next action.
+9. Owner accepts or rejects the result.
+10. Accepted output becomes memory or decision only when useful and approved.
+11. Run and cost records are stored when a role call occurs.
 
 ## MVP Implementation Phases
 
 ### Phase 0 — Runtime Repository Setup
 
+Status: PASSED
+
 Goal:
 
 Create the separate runtime repository and prepare the basic project structure.
 
-Includes:
-
-- create `nexora-studio-os-runtime`
-- initialize app structure
-- add README
-- add environment variable template without secrets
-- add basic development notes
-
-Completion rule:
-
-Repository exists and contains no product project code.
-
 ### Phase 1 — Database Foundation
+
+Status: PASSED
 
 Goal:
 
 Prepare the approved MVP data model for runtime use.
 
-Includes:
-
-- PostgreSQL connection plan
-- schema structure
-- model definitions
-- initial role seed data
-- migration strategy
-
-Completion rule:
-
-The runtime app can create and read core Studio OS records locally or in a development database.
-
 ### Phase 2 — Owner-Only Shell
+
+Status: PASSED
 
 Goal:
 
 Create the private owner-facing app shell.
 
-Includes:
-
-- basic dashboard
-- project view
-- task view
-- memory view
-- decision view
-- cost log view
-
-Completion rule:
-
-Owner can navigate the main Studio OS areas without public access.
-
 ### Phase 3 — Director Workflow Loop
+
+Status: PASSED
 
 Goal:
 
 Implement the first Director-controlled task loop.
 
-Includes:
-
-- create task
-- select required role
-- create conversation
-- build minimal context package
-- store messages
-- store Director summary
-
-Completion rule:
-
-A task can move through the Director workflow without autonomous multi-agent behavior.
-
 ### Phase 4 — First OpenAI Role Call
+
+Status: PASSED
 
 Goal:
 
 Connect one controlled role call to OpenAI.
 
-Includes:
-
-- call one model
-- store Run record
-- store input/output token usage when available
-- store estimated cost
-- store role output
-- show result to owner
-
-Completion rule:
-
-Owner can trigger one controlled role call and see stored output and run data.
-
 ### Phase 5 — Memory and Decision Acceptance
+
+Status: PASSED
 
 Goal:
 
 Allow owner to accept useful results into memory or decision log.
 
-Includes:
+### Phase 6 — Render Deployment MVP Preparation
 
-- accept output as Memory
-- create Decision record
-- link memory/decision to project/task
-- show stored records later
-
-Completion rule:
-
-Accepted output survives beyond the conversation and can be reused later.
-
-### Phase 6 — Render Deployment MVP
+Status: PASSED
 
 Goal:
 
-Deploy the first runtime MVP to the approved hosting direction.
+Prepare Render deployment templates and health check without deploying.
 
-Includes:
+### Phase 7 — Model Routing and Cost Policy
 
-- Render web service setup
-- PostgreSQL setup
-- environment variables
-- deployment from GitHub
-- basic logs check
-- pricing tier confirmation before paid resources
+Status: PASSED
+
+Goal:
+
+Add model tier routing, approval requirements, and cost policy foundation.
+
+### Phase 8 — Safety Hardening
+
+Status: PASSED
+
+Goal:
+
+Add safety hardening before validation and deployment.
+
+### Phase 9 — Validation Gate and Lean Workflow
+
+Status: IN_PROGRESS
+
+Goal:
+
+Prove runtime validation and prevent workflow bloat before deployment.
 
 Completion rule:
 
-Studio OS runtime is reachable privately and connected to its database.
+Validation must pass before deployment preparation opens.
+
+### Phase 10 — Deployment Preparation
+
+Status: LOCKED
+
+Goal:
+
+Prepare controlled Render deployment after validation passes.
+
+### Phase 11 — First Private Runtime Deployment
+
+Status: LOCKED
+
+Goal:
+
+Deploy owner-only private runtime after deployment preparation passes.
 
 ## MVP Exclusions
 
@@ -352,6 +374,8 @@ Not included in first runtime MVP:
 - real-time multiplayer collaboration
 - marketplace for roles/tools
 - autonomous coding engine
+- unnecessary departments
+- unnecessary documentation workflow
 
 ## GitHub Integration Scope
 
@@ -367,7 +391,8 @@ First MVP should be private and owner-only.
 
 Minimum acceptable auth:
 
-- protected owner login or platform-level private access
+- owner-only runtime access gate
+- protected deployment environment variables
 
 Not included:
 
@@ -376,33 +401,54 @@ Not included:
 - organization accounts
 - role-based permission matrix
 
+## Validation Scope
+
+Runtime validation must check:
+
+- static preflight
+- Prisma validate
+- Prisma generate
+- TypeScript check
+- Next build
+- workflow simulation
+
+Validation reports should be readable and preserved when possible.
+
+Deployment remains locked unless validation passes.
+
 ## Success Definition
 
 Runtime MVP is successful when the owner can:
 
-1. create a project
-2. create a task
-3. trigger one Director-controlled role call
-4. see the role output
-5. accept the output
-6. store the accepted result as memory
-7. see the decision/memory/task state later
-8. see token and cost record for the run
+1. use the owner-only runtime
+2. create or view a project
+3. create or classify a task
+4. keep simple work Director-only
+5. route heavy work to the correct specialist
+6. trigger one Director-controlled role call when needed
+7. see the role output
+8. accept useful output
+9. store accepted result as memory or decision
+10. see later task, memory, and decision state
+11. see token and cost record for role calls
+12. validate the runtime before deployment
 
 ## MVP Acceptance Checklist
 
 The Runtime MVP can be accepted only if:
 
 - owner-only access is working
-- project creation works
+- project creation or project viewing works
 - permanent roles exist
-- task creation works
+- task creation or task classification works
+- Director-first lean workflow is preserved
 - one Director-controlled role call works
 - messages are stored
-- Run record is stored
-- cost/token record is stored
+- Run record is stored when a role call happens
+- cost/token record is stored when a role call happens
 - accepted output can become Memory
 - approved decision can be stored
+- validation gate passes
 - no product project is active
 - no autonomous deployment exists
 - no uncontrolled multi-agent loop exists
@@ -419,15 +465,21 @@ Stop implementation and return to Director review if:
 - cost tracking is skipped
 - database memory is bypassed
 - OpenAI is treated as permanent memory
+- unnecessary departments slow the workflow
+- validation gate is bypassed
 
 ## Approval Status
 
 Runtime MVP plan is owner-approved.
 
-Runtime implementation may begin only after the runtime repository exists and the first implementation task is created.
+Runtime implementation is active.
+
+Deployment preparation is locked until validation passes.
 
 ## Final Rule
 
 Build the smallest Studio OS that proves the loop.
+
+Keep it lean, Director-first, and validation-gated.
 
 Do not build the full dream system in MVP.
