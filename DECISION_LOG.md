@@ -49,3 +49,36 @@ The studio needs a stable standard, data model, workflow, hosting rule, and proj
 Status:
 
 APPROVED
+
+## 2026-05-17 — Hosting Direction Approval
+
+Decision:
+
+Approve Render Managed Platform as the first runtime hosting direction for NEXORA Studio OS.
+
+Approved direction:
+
+- Frontend host: Render.
+- Backend host: Render Node.js Web Service.
+- PostgreSQL provider: Render Postgres.
+- Redis provider: Render Key Value or Redis-compatible queue layer.
+- Deployment method: GitHub auto-deploy after implementation repository is selected.
+- Backup approach: managed Postgres backup / recovery features plus manual export policy before production use.
+- Estimated monthly cost: approximately $13-$80 depending on selected service tiers.
+- Scaling path: start managed, split database, Redis, or frontend later only when real usage requires it.
+
+Boundaries:
+
+- Hosting direction is approved.
+- Runtime implementation has not started yet.
+- Exact pricing and selected tiers must be rechecked before paid resources are created.
+- Implementation repository decision is still required.
+- Runtime MVP planning is still required.
+
+Reason:
+
+Render keeps the first Studio OS runtime simple by grouping app runtime, Postgres, Redis-compatible support, logs, environment variables, HTTPS, custom domain support, and GitHub deployment in one managed platform.
+
+Status:
+
+APPROVED
