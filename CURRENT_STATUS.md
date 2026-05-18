@@ -9,6 +9,7 @@ Foundation status: approved and synced
 Director bootstrap protocol: implemented
 Runtime phase: Phase 9 — Validation Gate and Build Fixes
 Runtime validation: pending
+Runtime validation evidence: required
 Runtime deployment: locked
 Product projects: locked
 Paid resources: none
@@ -57,6 +58,7 @@ Safety hardening implemented.
 Lean department policy implemented.
 Validation gate reporting implemented.
 Director bootstrap protocol implemented.
+Validation evidence checklist implemented.
 Validation result pending.
 Deployment locked.
 ```
@@ -73,7 +75,7 @@ No unnecessary paperwork.
 
 ## Current Gate
 
-The next real gate is runtime validation.
+The next real gate is runtime validation evidence.
 
 Main runtime command:
 
@@ -82,7 +84,14 @@ npm install
 npm run validate:local
 ```
 
-Deployment preparation remains locked until validation passes.
+Runtime evidence rule:
+
+```text
+No validation evidence, no pass.
+No validation pass, no deployment.
+```
+
+Deployment preparation remains locked until validation passes with evidence.
 
 ## Current Milestones
 
@@ -118,7 +127,7 @@ Do not start:
 
 Get runtime validation evidence from the runtime repository.
 
-If validation passes, Phase 9 can close and Phase 10 deployment preparation can be planned.
+If validation passes with evidence, Phase 9 can close and Phase 10 deployment preparation can be planned.
 
 If validation fails, fix the first failed validation step and re-run validation.
 
@@ -127,5 +136,7 @@ If validation fails, fix the first failed validation step and re-run validation.
 Foundation defines the studio.
 
 Runtime proves the studio.
+
+Evidence unlocks the next gate.
 
 Product projects come later.
