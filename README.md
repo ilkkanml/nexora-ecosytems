@@ -2,7 +2,7 @@
 
 Clean foundation repository for building an internal AI-assisted studio.
 
-This repository defines the studio standard, data model, workflow, hosting requirements, and project intake rules.
+This repository defines the studio standard, data model, workflow, hosting requirements, repository boundaries, and runtime MVP planning.
 
 It is not a product project.
 It is not a runtime app yet.
@@ -33,19 +33,22 @@ OpenAI is used as the intelligence engine, not as the permanent project memory.
 - `DATA_STANDARD.md` — permanent memory and storage rules
 - `DATA_MODEL.md` — MVP database entities
 - `WORKFLOW.md` — Director-led task flow
-- `HOSTING.md` — permanent runtime requirements
+- `HOSTING.md` — permanent runtime requirements and approved hosting direction
 - `PROJECT_INTAKE.md` — how future projects enter the studio
 - `REPOSITORY_MAP.md` — current repo purpose and implementation boundary
+- `RUNTIME_MVP_PLAN.md` — first runtime MVP scope and exclusions
 - `ROADMAP.md` — current milestones
 - `DECISION_LOG.md` — approved decisions
 
 ## Foundation Rule
 
-Do not start product work until the Studio OS standard, data model, workflow, hosting direction, and implementation target are approved.
+Do not start product work until the Studio OS standard, data model, workflow, hosting direction, implementation target, and runtime MVP plan are approved.
 
 ## Current Status
 
-Foundation setup in progress.
+Foundation setup is approved through hosting and repository direction.
+
+Runtime MVP planning is in progress.
 
 No product project is active.
 
