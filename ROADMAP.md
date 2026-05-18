@@ -78,7 +78,7 @@ MVP data model is accepted for planning. Runtime schema implementation has not s
 
 ## Milestone 2 — Workflow Review
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
@@ -92,9 +92,13 @@ Completion rules:
 - approval gate is approved
 - failure rule is approved
 
+Result:
+
+The first Studio OS operating workflow is accepted for planning. Runtime implementation has not started yet.
+
 ## Milestone 3 — Hosting Decision
 
-Status: NOT_STARTED
+Status: IN_PROGRESS
 
 Goal:
 
