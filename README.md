@@ -10,9 +10,10 @@ It is the foundation and operating standard for the runtime app.
 
 ## Start Here
 
-For the latest short status, read:
+For new chat, new session, or long pause recovery, read:
 
 ```text
+DIRECTOR_BOOTSTRAP.md
 CURRENT_STATUS.md
 ```
 
@@ -31,6 +32,7 @@ Runtime foundation implemented.
 Safety hardening implemented.
 Lean department policy implemented.
 Validation gate reporting implemented.
+Director bootstrap protocol implemented.
 Validation result pending.
 Deployment locked.
 ```
@@ -65,6 +67,7 @@ No unnecessary paperwork.
 
 ## Active Documents
 
+- `DIRECTOR_BOOTSTRAP.md` — new session recovery protocol
 - `CURRENT_STATUS.md` — latest short project snapshot
 - `STUDIO_STANDARD.md` — studio rules, roles, truth standard, approvals
 - `OPENAI_USAGE_STANDARD.md` — OpenAI API usage, token control, model policy
