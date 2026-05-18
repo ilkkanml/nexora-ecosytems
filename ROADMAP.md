@@ -18,7 +18,7 @@ No runtime implementation has started.
 
 ## Milestone 0 — Foundation Standard
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
@@ -52,9 +52,13 @@ Completion rules:
 - approval rule is defined
 - no product project is active
 
+Result:
+
+Foundation document set is complete and clean.
+
 ## Milestone 1 — Data Model Review
 
-Status: NOT_STARTED
+Status: PASSED
 
 Goal:
 
@@ -68,9 +72,13 @@ Completion rules:
 - PostgreSQL source-of-truth rule is approved
 - Redis temporary-use rule is approved
 
+Result:
+
+MVP data model is accepted for planning. Runtime schema implementation has not started yet.
+
 ## Milestone 2 — Workflow Review
 
-Status: NOT_STARTED
+Status: IN_PROGRESS
 
 Goal:
 
