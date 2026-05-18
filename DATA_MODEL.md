@@ -400,6 +400,109 @@ ContextPackage may be used by many Runs.
 
 ContextPackage may reference many Memory records and file references.
 
+## Required vs Optional Fields
+
+### Global Required Fields
+
+Every main entity should have:
+
+- id
+- createdAt
+
+Entities that can be edited should also have:
+
+- updatedAt
+
+### Required Identity Fields
+
+These fields should be required because they define the record:
+
+- Project.name
+- Project.type
+- Project.status
+- Role.name
+- Role.isPermanent
+- Role.isActive
+- Task.projectId
+- Task.title
+- Task.status
+- Conversation.taskId
+- Conversation.type
+- Conversation.status
+- Message.conversationId
+- Message.messageType
+- Message.content
+- Run.conversationId
+- Run.taskId
+- Run.roleId
+- Run.provider
+- Run.model
+- Run.status
+- Decision.projectId
+- Decision.title
+- Decision.status
+- Milestone.projectId
+- Milestone.title
+- Milestone.status
+- Memory.projectId
+- Memory.title
+- Memory.content
+- Memory.reliability
+- Approval.projectId
+- Approval.status
+- CostLog.projectId
+- CostLog.provider
+- CostLog.model
+- ContextPackage.projectId
+- ContextPackage.taskId
+- ContextPackage.summary
+
+### Optional Workflow Fields
+
+These fields should be optional because they depend on progress or context:
+
+- Project.description
+- Project.repositoryUrl
+- Task.milestoneId
+- Task.requiredRoleId
+- Task.completedAt
+- Conversation.directorSummary
+- Conversation.completedAt
+- Message.roleId
+- Message.runId
+- Run.contextPackageId
+- Run.completedAt
+- Run.errorMessage
+- Decision.taskId
+- Decision.reason
+- Approval.taskId
+- Approval.decisionId
+- Approval.notes
+- Approval.approvedAt
+- CostLog.taskId
+- CostLog.conversationId
+- CostLog.runId
+- ContextPackage.includedMemoryIds
+- ContextPackage.includedFileRefs
+
+### Required Status Rule
+
+Every entity that moves through a workflow must have a required status field.
+
+Status should use enums, not free text.
+
+### Optional Timestamp Rule
+
+Start timestamps may be required when execution begins.
+
+Completion timestamps should remain optional until work finishes.
+
+### Final Field Rule
+
+Required fields should describe what the record is.
+
+Optional fields should describe what happened later.
+
 ## Data Rules
 
 - PostgreSQL is the source of truth.
