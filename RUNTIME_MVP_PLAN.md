@@ -203,6 +203,137 @@ Default first flow:
 8. Accepted output becomes memory if useful.
 9. Run and cost records are stored.
 
+## MVP Implementation Phases
+
+### Phase 0 — Runtime Repository Setup
+
+Goal:
+
+Create the separate runtime repository and prepare the basic project structure.
+
+Includes:
+
+- create `nexora-studio-os-runtime`
+- initialize app structure
+- add README
+- add environment variable template without secrets
+- add basic development notes
+
+Completion rule:
+
+Repository exists and contains no product project code.
+
+### Phase 1 — Database Foundation
+
+Goal:
+
+Prepare the approved MVP data model for runtime use.
+
+Includes:
+
+- PostgreSQL connection plan
+- schema structure
+- model definitions
+- initial role seed data
+- migration strategy
+
+Completion rule:
+
+The runtime app can create and read core Studio OS records locally or in a development database.
+
+### Phase 2 — Owner-Only Shell
+
+Goal:
+
+Create the private owner-facing app shell.
+
+Includes:
+
+- basic dashboard
+- project view
+- task view
+- memory view
+- decision view
+- cost log view
+
+Completion rule:
+
+Owner can navigate the main Studio OS areas without public access.
+
+### Phase 3 — Director Workflow Loop
+
+Goal:
+
+Implement the first Director-controlled task loop.
+
+Includes:
+
+- create task
+- select required role
+- create conversation
+- build minimal context package
+- store messages
+- store Director summary
+
+Completion rule:
+
+A task can move through the Director workflow without autonomous multi-agent behavior.
+
+### Phase 4 — First OpenAI Role Call
+
+Goal:
+
+Connect one controlled role call to OpenAI.
+
+Includes:
+
+- call one model
+- store Run record
+- store input/output token usage when available
+- store estimated cost
+- store role output
+- show result to owner
+
+Completion rule:
+
+Owner can trigger one controlled role call and see stored output and run data.
+
+### Phase 5 — Memory and Decision Acceptance
+
+Goal:
+
+Allow owner to accept useful results into memory or decision log.
+
+Includes:
+
+- accept output as Memory
+- create Decision record
+- link memory/decision to project/task
+- show stored records later
+
+Completion rule:
+
+Accepted output survives beyond the conversation and can be reused later.
+
+### Phase 6 — Render Deployment MVP
+
+Goal:
+
+Deploy the first runtime MVP to the approved hosting direction.
+
+Includes:
+
+- Render web service setup
+- PostgreSQL setup
+- environment variables
+- deployment from GitHub
+- basic logs check
+- pricing tier confirmation before paid resources
+
+Completion rule:
+
+Studio OS runtime is reachable privately and connected to its database.
+
 ## MVP Exclusions
 
 Not included in first runtime MVP:
@@ -257,6 +388,37 @@ Runtime MVP is successful when the owner can:
 6. store the accepted result as memory
 7. see the decision/memory/task state later
 8. see token and cost record for the run
+
+## MVP Acceptance Checklist
+
+The Runtime MVP can be accepted only if:
+
+- owner-only access is working
+- project creation works
+- permanent roles exist
+- task creation works
+- one Director-controlled role call works
+- messages are stored
+- Run record is stored
+- cost/token record is stored
+- accepted output can become Memory
+- approved decision can be stored
+- no product project is active
+- no autonomous deployment exists
+- no uncontrolled multi-agent loop exists
+
+## Stop Conditions
+
+Stop implementation and return to Director review if:
+
+- scope expands beyond MVP without approval
+- product project code enters the runtime repo
+- public user system is added too early
+- autonomous coding or deployment is added too early
+- secrets are committed
+- cost tracking is skipped
+- database memory is bypassed
+- OpenAI is treated as permanent memory
 
 ## Approval Requirement
 
