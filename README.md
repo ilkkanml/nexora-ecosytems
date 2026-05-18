@@ -33,13 +33,35 @@ Safety hardening implemented.
 Lean department policy implemented.
 Validation gate reporting implemented.
 Director bootstrap protocol implemented.
+Runtime status API implemented.
+Validation UI/API implemented.
+Validation report reader/API implemented.
+Deployment readiness gate/API implemented.
 Validation result pending.
 Deployment locked.
 ```
 
+Current runtime endpoints:
+
+```text
+GET /api/runtime-status
+GET /api/validation-status
+GET /api/validation-report
+GET /api/deployment-readiness
+```
+
 No product project is active.
 
-No paid hosting resources should be created until validation passes and deployment preparation is explicitly approved.
+No paid hosting resources should be created until validation passes and deployment preparation is explicitly owner-approved.
+
+## Gate Rule
+
+```text
+No validation evidence, no pass.
+No validation pass, no deployment.
+Readiness is not deployment.
+Phase 10 requires owner approval after validation passes.
+```
 
 ## Core Idea
 
@@ -93,4 +115,4 @@ Runtime MVP implementation is active in the separate runtime repository.
 
 Phase 9 validation gate is active.
 
-Deployment remains locked until validation passes.
+Deployment remains locked until validation passes with evidence and owner approval.
