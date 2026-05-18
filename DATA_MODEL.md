@@ -529,6 +529,45 @@ The first working version only needs:
 - CostLog
 - ContextPackage
 
+## MVP Exclusions
+
+The first working version should not include these systems yet:
+
+- multi-user team management
+- complex permission matrix
+- billing system
+- public customer accounts
+- autonomous deployment
+- full GitHub PR automation
+- plugin marketplace
+- multi-tenant organization system
+- advanced analytics dashboard
+- marketplace for roles or tools
+
+## Future Backlog
+
+The excluded systems are not rejected.
+
+They are parked for later review after the Studio OS runtime MVP is stable.
+
+Future candidates:
+
+- team accounts
+- organization workspaces
+- advanced permissions
+- GitHub PR automation
+- deployment assistant
+- billing and usage plans
+- advanced reporting
+- plugin/tool registry
+- project templates marketplace
+
+## Backlog Rule
+
+If something is excluded from MVP, it must be listed here or in a future backlog record.
+
+Do not rely on memory alone.
+
 ## Entity Separation
 
 - Conversation stores the logical work session.
