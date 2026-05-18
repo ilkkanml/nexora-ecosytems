@@ -127,7 +127,7 @@ Pricing and selected tiers must be rechecked before paid resources are created.
 
 ## Milestone 4 — Implementation Repository Decision
 
-Status: IN_PROGRESS
+Status: PASSED
 
 Goal:
 
@@ -146,9 +146,21 @@ Completion rules:
 - first implementation milestone is created
 - no product project is mixed into the foundation implementation
 
+Result:
+
+Separate runtime repository direction is approved.
+
+Approved runtime repository name:
+
+`nexora-studio-os-runtime`
+
+The runtime repository has not been created yet.
+
+Runtime implementation has not started yet.
+
 ## Milestone 5 — Runtime MVP Planning
 
-Status: NOT_STARTED
+Status: IN_PROGRESS
 
 Goal:
 
@@ -167,4 +179,4 @@ Initial runtime scope:
 
 ## Final Rule
 
-Do not start implementation before foundation, hosting, and repository direction are approved.
+Do not start implementation before foundation, hosting, repository direction, and runtime MVP plan are approved.
