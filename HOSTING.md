@@ -49,24 +49,25 @@ Redis is not the source of truth.
 
 ## Hosting Decision Rule
 
-Before implementation starts, choose one permanent hosting direction.
+Before deployment preparation starts, confirm one hosting direction and selected tiers.
 
 The decision must include:
 
 - frontend host
 - backend host
 - PostgreSQL provider
-- Redis provider
+- Redis provider or deferral decision
 - deployment method
 - backup approach
 - estimated monthly cost
 - scaling path
+- owner approval
 
 ## Candidate Patterns
 
 ### Managed Platform
 
-One managed platform provides app runtime, PostgreSQL, Redis, logs, and deployment.
+One managed platform provides app runtime, PostgreSQL, Redis-compatible support, logs, and deployment.
 
 Best for:
 
@@ -124,7 +125,7 @@ Shape:
 - Frontend: Render static site or web service
 - Backend: Render Node.js web service
 - PostgreSQL: Render Postgres
-- Redis/Queue: Render Key Value or compatible queue layer
+- Redis/Queue: Render Key Value or compatible queue layer if needed
 - Deployment: GitHub auto-deploy or manual deploy
 - Logs: Render service logs
 - Domain: custom domain via DNS
@@ -155,37 +156,12 @@ Estimated MVP cost:
 Status:
 
 - owner-approved hosting direction
-- implementation still not started
+- runtime implementation is active
+- deployment preparation is locked until validation passes
 
 ### Option B — Railway Managed Platform
 
 Good alternative for fast deployment and simple developer workflow.
-
-Shape:
-
-- Frontend/backend/services: Railway services
-- PostgreSQL: Railway database service
-- Redis/Queue: Railway service or plugin/template approach
-- Deployment: GitHub deployment
-- Logs: Railway logs
-- Secrets: environment variables
-
-Why it fits:
-
-- simple project canvas
-- fast app deployment
-- usage-based pricing
-- GitHub deployment support
-
-Risk:
-
-- usage-based pricing may be less predictable
-- production database/backup strategy must be checked carefully before final approval
-
-Estimated MVP cost:
-
-- low MVP: approximately $5-$25/month
-- safer small production: approximately $20-$60/month
 
 Status:
 
@@ -196,35 +172,6 @@ Status:
 
 Best future flexibility, but not the simplest MVP path.
 
-Shape:
-
-- Frontend: Vercel
-- Backend: Render or Railway
-- PostgreSQL: Neon or Supabase
-- Redis/Queue: Upstash
-- Deployment: GitHub deployment per service
-- Logs: provider-specific logs
-- Secrets: provider-specific environment variables
-
-Why it fits:
-
-- strong frontend hosting
-- strong serverless PostgreSQL options
-- lightweight Redis option
-- each layer can scale independently
-
-Risk:
-
-- more moving parts
-- harder setup
-- more places to debug
-- not ideal for first Studio OS runtime unless needed
-
-Estimated MVP cost:
-
-- low MVP: approximately $0-$35/month
-- safer small production: approximately $35-$100/month
-
 Status:
 
 - future-friendly alternative
@@ -233,13 +180,6 @@ Status:
 ### Option D — VPS with Docker
 
 Not recommended for the first MVP.
-
-Why not now:
-
-- more server maintenance
-- security patching responsibility
-- manual backup setup
-- more DevOps work before the studio proves its runtime shape
 
 Status:
 
@@ -254,8 +194,8 @@ Approved MVP shape:
 - Frontend host: Render
 - Backend host: Render Node.js Web Service
 - PostgreSQL provider: Render Postgres
-- Redis provider: Render Key Value or Redis-compatible queue layer
-- Deployment method: GitHub auto-deploy after implementation repo is selected
+- Redis provider: Render Key Value or Redis-compatible queue layer if needed
+- Deployment method: GitHub deployment after validation and owner approval
 - Backup approach: managed Postgres backup / recovery features plus manual export policy before production use
 - Estimated monthly cost: approximately $13-$80 depending on selected service tiers
 - Scaling path: start managed, split database/Redis/frontend later only when real usage requires it
@@ -272,10 +212,19 @@ Do not treat old estimates as final billing commitments.
 
 Hosting direction is approved.
 
-Runtime implementation has not started yet.
+Runtime implementation is active in the separate runtime repository.
 
-Implementation still requires implementation repository decision and runtime MVP planning.
+Deployment preparation has not started.
+
+Deployment preparation is locked until:
+
+- runtime validation passes
+- owner approves deployment preparation
+- current pricing is rechecked
+- environment variable plan is confirmed
 
 ## Final Rule
 
-Do not start implementation until the permanent hosting direction, implementation repository, and runtime MVP plan are approved.
+No validation, no deployment.
+
+No owner approval, no paid hosting resources.
